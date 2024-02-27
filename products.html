@@ -214,6 +214,7 @@
                   <a href="./products.html"> Load More </a>
                </div>
             </div>
+            <div class="notification-container"></div>
          </section>
          <section class="about-section mt-5">
             <div class="container">
@@ -289,17 +290,38 @@
                      name: itemName,
                      price: priceText,
                   };
+                  addToCart(product.name, product.price);
 
-                  // Add product to cart
-                  cartItems.push(product);
-                  counter.textContent = cartItems.length;
+                  // // Add product to cart
+                  // cartItems.push(product);
+                  // counter.textContent = cartItems.length;
 
-                  // Save cart items to local storage
-                  localStorage.setItem("cart", JSON.stringify(cartItems));
-                  displayCart();
+                  // // Save cart items to local storage
+                  // localStorage.setItem("cart", JSON.stringify(cartItems));
+                  // showNotification("message");
+                  // displayCart();
                });
             });
+            function addToCart(itemName, itemPrice) {
+               // Check if the product already exists in the cart
+               const existingProduct = cartItems.find((item) => item.name === itemName && item.price === itemPrice);
+               console.log(existingProduct);
+               if (existingProduct) {
+                  // Product already exists, show error notification
+                  showNotification("Product already in cart");
+               } else {
+                  // Product does not exist, add it to the cart
+                  cartItems.push({ name: itemName, price: itemPrice });
+                  // Update local storage
+                  localStorage.setItem("cart", JSON.stringify(cartItems));
+                  counter.textContent = cartItems.length;
 
+                  // Display success notification
+                  showNotification("Product added to cart");
+                  // Update cart display
+                  displayCart();
+               }
+            }
             // Function to display cart items
             function displayCart() {
                const cartContainer = document.getElementById("cart-container");
@@ -335,6 +357,7 @@
                      // Save updated cartItems array to local storage
                      localStorage.setItem("cart", JSON.stringify(cartItems));
                      counter.textContent = cartItems.length;
+                     showNotification("Product remove to cart");
 
                      // Update display
                      displayCart();
@@ -345,6 +368,29 @@
             // Display cart items initially
             displayCart();
          });
+         function showNotification(message) {
+            const notificationContainer = document.querySelector(".notification-container");
+
+            // Create notification element
+            const notification = document.createElement("div");
+            notification.classList.add("notification");
+            notification.textContent = message;
+
+            // Append notification to container
+            notificationContainer.appendChild(notification);
+
+            // Show notification
+            notification.classList.add("show");
+
+            // Hide notification after a delay
+            setTimeout(() => {
+               notification.classList.remove("show");
+               // Remove notification element from DOM after animation completes
+               notification.addEventListener("transitionend", () => {
+                  notification.remove();
+               });
+            }, 3000); // Adjust the delay as needed
+         }
       </script>
    </body>
 </html>

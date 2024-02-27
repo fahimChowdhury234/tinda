@@ -42,7 +42,7 @@ body {
 }
 
 .carousel-item-box .content h2 {
-    font-size: 60px;
+    font-size: 56px;
     font-weight: 800;
 }
 
@@ -268,6 +268,7 @@ footer {
     justify-content: center;
     align-items: center;
     border-radius: 50px;
+    cursor: pointer;
 }
 
 .cart-modal-remove svg {
@@ -288,6 +289,7 @@ footer {
 }
 
 .cart-modal-checkOut a {
+    display: inline-block;
     padding: 10px 50px;
     background-color: rgb(42, 18, 87);
     border-radius: 40px;
@@ -363,4 +365,159 @@ footer {
 
 table {
     text-align: center;
+}
+
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #1a8dda;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .3s ease-in;
+    z-index: 999999999999999;
+    /* Initially hidden */
+}
+
+.notification.show {
+    opacity: 1;
+    visibility: visible;
+
+    /* Show the notification */
+}
+
+.contact-section {
+    padding: 50px 0;
+}
+
+.contact-content {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.contact-row {
+    padding: 30px 0;
+}
+
+.contact-content-wrapper {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.contact-content-wrapper h4 {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.contact-content-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 40px;
+    background-color: #1a8dda;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-content-icon svg {
+    width: 25px;
+}
+
+.contant-img img {
+    width: 100%;
+    height: 100%;
+}
+
+/* Responsive */
+
+
+@media only screen and (max-width: 768px) and (min-width: 200px) {
+    .carousel-item-box figure {
+        display: none;
+    }
+
+    .carousel-inner {
+        height: 400px;
+    }
+
+    .carousel-item-box .content {
+        padding: 40px;
+        width: 100%;
+    }
+
+    .carousel-control-next {
+        right: -7px;
+    }
+
+    .carousel-control-prev {
+        left: -7px;
+    }
+
+    .carousel-item-box .content h2 {
+        font-size: 30px;
+        text-align: center;
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .carousel-control-prev-icon svg,
+    .carousel-control-next-icon svg {
+        width: 15px;
+    }
+
+    .about-section-content {
+        padding: 20px;
+        text-align: center;
+
+    }
+
+    .about-section-content h3 {
+        font-size: 22px;
+    }
+
+    .about-section-content p {
+        font-size: 14px;
+    }
+
+    .section-title h2 {
+        font-size: 30px;
+    }
+
+    .product-gallery-img figure {
+        height: 290px;
+    }
+
+    .counter {
+        top: 5px;
+        right: -8px;
+    }
+
+    .sub-hero {
+        height: 300px;
+    }
+
+    .cart-modal {
+        width: 100%;
+    }
+
+    .cart-modal-box h2 {
+        font-size: 24px;
+    }
+
+    .contact-content {
+        width: 100%;
+        padding-left: 35px;
+        text-align: center;
+        margin-bottom: 40px
+    }
 }
