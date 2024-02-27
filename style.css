@@ -287,7 +287,7 @@ footer {
     border-radius: 6px;
 }
 
-.cart-modal-checkOut button {
+.cart-modal-checkOut a {
     padding: 10px 50px;
     background-color: rgb(42, 18, 87);
     border-radius: 40px;
@@ -298,6 +298,7 @@ footer {
     text-decoration: none;
     font-size: 16px;
     margin-top: 20px;
+    text-decoration: none;
 }
 
 .closeCart {
